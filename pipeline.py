@@ -8,13 +8,14 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import collections
 import sys
- 
+import os
 
 filename = sys.argv[1]
 
+
 def GetTokens(filename):
 	print("tokenizing filename %s" % filename)
-	text=textract.process('test.pdf', method='tesseract', language='eng')
+	text=textract.process(filename, method='tesseract', language='eng')
 	sentences=word_tokenize(text.decode('utf-8'))
 	punctuations = ['(',')',';',':','[',']',',','.','-','!']
 	stop_words = stopwords.words('english')
@@ -28,3 +29,8 @@ def GetTokens(filename):
 tokens = GetTokens(filename)
 
 print tokens
+
+
+
+
+
